@@ -1,18 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
-import Internships from '../components/Internships.astro';
-import Projects from '../components/Projects.astro';
-import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<Navbar title="Vicente Muñoz" />
-	<Hero />
-	<Skills />
-	<Internships />
-	<Projects />
-	<Footer />
+<Layout title="Selecciona un perfil" description="Elige el perfil profesional que deseas ver">
+	<main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
+		<div class="max-w-4xl w-full">
+			<div class="text-center mb-16">
+				<h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+					Selecciona un Perfil
+				</h1>
+				<p class="text-xl text-gray-600">
+					Explora los portafolios
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Perfil Ulises -->
+				<a href="/ulises" class="group">
+					<div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden h-full">
+						<div class="bg-gradient-to-br from-purple-500 to-purple-600 h-32"></div>
+						<div class="px-6 py-8">
+							<div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full mx-auto -mt-16 mb-4 flex items-center justify-center border-4 border-white">
+								<span class="text-3xl font-bold text-white">U</span>
+							</div>
+							<h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Ulises</h2>
+							<p class="text-gray-600 text-center mb-6">
+								Ingeniero en Computación
+							</p>
+							<button class="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+								Ver Perfil →
+							</button>
+						</div>
+					</div>
+				</a>
+
+				<!-- Perfil Vicente -->
+				<a href="/vicente" class="group">
+					<div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden h-full">
+						<div class="bg-gradient-to-br from-blue-500 to-blue-600 h-32"></div>
+						<div class="px-6 py-8">
+							<div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full mx-auto -mt-16 mb-4 flex items-center justify-center border-4 border-white">
+								<span class="text-3xl font-bold text-white">V</span>
+							</div>
+							<h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Vicente</h2>
+							<p class="text-gray-600 text-center mb-6">
+								Ingeniero en Computación
+							</p>
+							<button class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+								Ver Perfil →
+							</button>
+						</div>
+					</div>
+				</a>
+
+				<!-- Perfil Gabriel -->
+				<a href="/gabriel" class="group">
+					<div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden h-full">
+						<div class="bg-gradient-to-br from-indigo-500 to-indigo-600 h-32"></div>
+						<div class="px-6 py-8">
+							<div class="w-20 h-20 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full mx-auto -mt-16 mb-4 flex items-center justify-center border-4 border-white">
+								<span class="text-3xl font-bold text-white">G</span>
+							</div>
+							<h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">Gabriel</h2>
+							<p class="text-gray-600 text-center mb-6">
+								Estudiante
+							</p>
+							<button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+								Ver Perfil →
+							</button>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="mt-16 text-center text-gray-500">
+				<p class="text-sm">Portafolios de UVG</p>
+			</div>
+		</div>
+	</main>
 </Layout>
+
+<style>
+	a {
+		text-decoration: none;
+	}
+</style>
