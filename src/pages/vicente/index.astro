@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Fonts from '../../components/Fonts.astro';
+import Motion from '../../components/Motion.astro';
 import Navbar from '../../components/Navbar.astro';
 import Hero from '../../components/Hero.astro';
 import Skills from '../../components/Skills.astro';
@@ -9,10 +11,16 @@ import Footer from '../../components/Footer.astro';
 ---
 
 <Layout>
-	<Navbar title="Vicente Muñoz" />
-	<Hero />
-	<Skills />
-	<Internships />
-	<Projects />
-	<Footer />
+	<Fonts />
+	<Motion />
+	<div class="vm min-h-screen bg-(--vm-paper) text-(--vm-ink)">
+		<Navbar title="Vicente Muñoz" />
+		<main>
+			<Hero />
+			<Skills />
+			<Internships />
+			<Projects />
+		</main>
+		<Footer />
+	</div>
 </Layout>

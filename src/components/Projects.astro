@@ -1,63 +1,63 @@
 ---
+const projects = [
+  {
+    title: "Sistema de Gestión",
+    href: "https://github.com/vema17/ArtPlace",
+    host: "github.com/vema17/ArtPlace",
+    description: "Aplicación web de comercio electrónico utilizando JavaScript y Python.",
+    tags: ["JavaScript", "Python", "Pandas"],
+  },
+  {
+    title: "Sitio Web",
+    href: "https://vicente.uvg.cl",
+    host: "vicente.uvg.cl",
+    description: "Portafolio construido con Astro y Tailwind CSS.",
+    tags: ["Astro", "Tailwind"],
+  },
+  {
+    title: "Proyecto Narfu",
+    href: "https://narfu.dylan.click/",
+    host: "narfu.dylan.click",
+    description:
+      "Monitoreo para riego tecnificado en página web. Trabajé en la IA, la cual proporciona la cantidad de agua requerida utilizando los datos del huerto y el clima.",
+    tags: ["Python", "Machine Learning"],
+  },
+];
 ---
 
-<section id="trabajos" class="py-16 bg-white">
+<section id="trabajos" class="py-20 md:py-28">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Trabajos Realizados</h2>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <a href="https://github.com/vema17/ArtPlace" target="_blank" rel="noopener" class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition hover:-translate-y-2">
-        <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-          <span class="text-5xl">💻</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Sistema de Gestión</h3>
-          <p class="text-gray-600 mb-4">
-            Aplicación web de comercio electrónico utilizando Javascript y Python.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">JavaScript</span>
-            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Python</span>
-            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Pandas</span>
-          </div>
-          <p class="text-blue-600 font-semibold hover:text-blue-700">Ver más →</p>
-        </div>
-      </a>
+    <header class="mb-12 md:mb-16" data-reveal>
+      <p class="vm-mono text-(--vm-accent) mb-3">03 — Trabajos</p>
+      <h2 class="vm-display text-3xl md:text-5xl">Trabajos realizados</h2>
+    </header>
 
-      <a href="https://vicente.uvg.cl" target="_blank" rel="noopener" class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition hover:-translate-y-2">
-        <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-          <span class="text-5xl">🌐</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Sitio Web</h3>
-          <p class="text-gray-600 mb-4">
-            Portafolio construido con Astro y Tailwind CSS.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Astro</span>
-            <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs">Tailwind</span>
+    <div class="grid md:grid-cols-3 gap-6">
+      {projects.map((project, i) => (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener"
+          data-reveal
+          style={`--i: ${i}`}
+          class="group flex flex-col bg-(--vm-surface) border border-(--vm-line) rounded-2xl p-7 hover:border-(--vm-accent) hover:-translate-y-1 transition duration-200"
+        >
+          <div class="flex justify-between items-start mb-10">
+            <span class="vm-mono text-(--vm-muted)">{String(i + 1).padStart(2, "0")}</span>
+            <span class="text-2xl leading-none text-(--vm-muted) group-hover:text-(--vm-accent) group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" aria-hidden="true">↗</span>
           </div>
-          <p class="text-blue-600 font-semibold hover:text-blue-700">Ver más →</p>
-        </div>
-      </a>
-
-      <a href="https://narfu.dylan.click/" target="_blank" rel="noopener" class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition hover:-translate-y-2">
-        <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-          <span class="text-5xl">💧</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Proyecto Narfu</h3>
-          <p class="text-gray-600 mb-4">
-            Monitoreo para riego tecnificado en pagina web.
-            Trabajé en la IA la cual proporciona la cantidad de agua requerida utilizando los datos del huerto y el clima.
+          <h3 class="vm-display text-2xl mb-3">{project.title}</h3>
+          <p class="text-(--vm-muted) leading-relaxed mb-6">{project.description}</p>
+          <ul class="flex flex-wrap gap-2 mb-8">
+            {project.tags.map((tag) => (
+              <li class="vm-mono bg-(--vm-accent-soft) text-(--vm-accent) rounded-full px-3 py-1">{tag}</li>
+            ))}
+          </ul>
+          <p class="mt-auto pt-4 border-t border-(--vm-line) text-sm text-(--vm-muted) group-hover:text-(--vm-accent) transition-colors truncate">
+            {project.host}
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Python</span>
-            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Machine Learning</span>
-          </div>
-          <p class="text-blue-600 font-semibold hover:text-blue-700">Ver más →</p>
-        </div>
-      </a>
+        </a>
+      ))}
     </div>
   </div>
 </section>

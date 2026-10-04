@@ -1,0 +1,48 @@
+---
+// Animaciones del tema .vm: efecto de tipeo ([data-type]) y aparición al hacer scroll ([data-reveal]).
+// Debe ir antes del contenido para que la clase vm-js exista antes del primer pintado.
+---
+
+<script is:inline>
+  document.documentElement.classList.add('vm-js');
+</script>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.15 },
+  );
+  document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+  async function type(el: Element) {
+    const lines = [...el.querySelectorAll('[data-type-line]')];
+    const texts = lines.map((line) => line.textContent?.trim() ?? '');
+    const cursor = document.createElement('span');
+    cursor.className = 'vm-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+
+    // El espacio de ancho cero mantiene la altura de las líneas aún no escritas
+    lines.forEach((line) => (line.textContent = '​'));
+    for (const [i, line] of lines.entries()) {
+      const text = document.createTextNode('');
+      line.replaceChildren(text, cursor);
+      for (const char of texts[i]) {
+        text.data += char;
+        await sleep(70);
+      }
+    }
+  }
+
+  if (!reduceMotion) {
+    document.querySelectorAll('[data-type]').forEach(type);
+  }
+</script>

@@ -4,28 +4,31 @@ interface Props {
 }
 
 const { title = "Vicente Muñoz" } = Astro.props;
+
+const links = [
+  { href: "#habilidades", label: "Habilidades" },
+  { href: "#practicas", label: "Prácticas" },
+  { href: "#trabajos", label: "Trabajos" },
+  { href: "#contacto", label: "Contacto" },
+];
 ---
 
-<nav class="bg-white shadow-sm sticky top-0 z-50">
+<nav class="sticky top-0 z-50 border-b border-(--vm-line) bg-(--vm-paper)/85 backdrop-blur">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
-      <div class="flex-shrink-0">
-        <a href="#inicio" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition">
-          {title}
-        </a>
-      </div>
-      <div class="hidden md:flex space-x-8">
-        <a href="#inicio" class="text-gray-600 hover:text-blue-600 transition font-medium">
-          Inicio
-        </a>
-        <a href="#habilidades" class="text-gray-600 hover:text-blue-600 transition font-medium">
-          Habilidades
-        </a>
-        <a href="#practicas" class="text-gray-600 hover:text-blue-600 transition font-medium">
-          Prácticas
-        </a>
-        <a href="#trabajos" class="text-gray-600 hover:text-blue-600 transition font-medium">
-          Trabajos
+    <div class="flex justify-between items-center h-16 gap-6">
+      <a href="#inicio" class="vm-display text-lg text-(--vm-ink) hover:text-(--vm-accent) transition-colors">
+        {title}
+      </a>
+      <div class="flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <a href={link.href} class="vm-mono text-(--vm-muted) hover:text-(--vm-ink) transition-colors">
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <a href="/" class="vm-mono text-(--vm-muted) hover:text-(--vm-accent) transition-colors whitespace-nowrap">
+          ← Perfiles
         </a>
       </div>
     </div>

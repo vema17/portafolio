@@ -53,3 +53,141 @@ html {
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
 }
+
+/* Tema editorial: solo aplica dentro de .vm, las páginas que no usan la clase no cambian */
+.vm {
+  --vm-paper: #f5f3ee;
+  --vm-surface: #fcfbf8;
+  --vm-ink: #15181e;
+  --vm-muted: #5b606b;
+  --vm-line: #dbd7cd;
+  --vm-accent: #1f4fd8;
+  --vm-accent-soft: #e3e9fb;
+  --vm-ok: #1f9d55;
+
+  font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  .vm {
+    --vm-paper: #0f1115;
+    --vm-surface: #161920;
+    --vm-ink: #eceae4;
+    --vm-muted: #9a9fa9;
+    --vm-line: #2a2e37;
+    --vm-accent: #86a3ff;
+    --vm-accent-soft: #1a2342;
+    --vm-ok: #4ccb82;
+  }
+}
+
+.vm-display {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.vm-mono {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vm section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.vm a:focus-visible {
+  outline: 2px solid var(--vm-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.vm ::selection {
+  background: var(--vm-accent);
+  color: var(--vm-paper);
+}
+
+/* Cuadrícula de fondo que se desplaza lentamente */
+.vm-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--vm-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vm-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 80% at 75% 20%, #000, transparent 75%);
+  opacity: 0.7;
+  animation: vm-pan 24s linear infinite;
+}
+
+@keyframes vm-pan {
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+/* Cursor del efecto de tipeo */
+.vm-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.8em;
+  margin-left: 0.08em;
+  background: var(--vm-accent);
+  animation: vm-blink 1s steps(1) infinite;
+}
+
+@keyframes vm-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.vm-pulse {
+  animation: vm-pulse 2s ease-out infinite;
+}
+
+@keyframes vm-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--vm-ok) 60%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0.6rem transparent;
+  }
+}
+
+/* Aparición al entrar en pantalla; --i escalona elementos hermanos */
+.vm-js [data-reveal] {
+  opacity: 0;
+}
+
+.vm-js [data-reveal].is-visible {
+  animation: vm-rise 0.6s ease-out both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes vm-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-grid,
+  .vm-cursor,
+  .vm-pulse {
+    animation: none;
+  }
+
+  .vm-js [data-reveal],
+  .vm-js [data-reveal].is-visible {
+    opacity: 1;
+    animation: none;
+  }
+}

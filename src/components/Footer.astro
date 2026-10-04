@@ -1,46 +1,48 @@
 ---
+const email = "vicentealtamirano2104@gmail.com";
 ---
 
-<footer class="bg-gray-900 text-white py-12">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
+<footer id="contacto" class="bg-(--vm-ink) text-(--vm-paper)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-10">
+    <p class="vm-mono opacity-60 mb-4">Contacto</p>
+    <a
+      href={`mailto:${email}`}
+      class="vm-display block text-lg sm:text-3xl md:text-4xl lg:text-5xl leading-tight break-all hover:opacity-70 transition-opacity"
+    >
+      {email}
+    </a>
+
+    <div class="grid sm:grid-cols-3 gap-8 mt-16 pt-8 border-t border-(--vm-paper)/20">
       <div>
-        <h3 class="text-xl font-bold mb-4">Vicente Muñoz</h3>
-        <p class="text-gray-400">
-          Ingeniero en Computación.
-        </p>
+        <h3 class="font-semibold mb-1">Vicente Muñoz</h3>
+        <p class="opacity-60">Ingeniero en Computación</p>
+        <p class="opacity-60">La Serena, Chile</p>
       </div>
 
-      <div>
-        <h4 class="font-semibold mb-4">Enlaces Rápidos</h4>
-        <ul class="space-y-2 text-gray-400">
-          <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
-          <li><a href="#habilidades" class="hover:text-white transition">Habilidades</a></li>
-          <li><a href="#practicas" class="hover:text-white transition">Prácticas</a></li>
-          <li><a href="#trabajos" class="hover:text-white transition">Trabajos</a></li>
-        </ul>
-      </div>
+      <ul class="space-y-2">
+        <li><a href="#inicio" class="opacity-60 hover:opacity-100 transition-opacity">Inicio</a></li>
+        <li><a href="#habilidades" class="opacity-60 hover:opacity-100 transition-opacity">Habilidades</a></li>
+        <li><a href="#practicas" class="opacity-60 hover:opacity-100 transition-opacity">Prácticas</a></li>
+        <li><a href="#trabajos" class="opacity-60 hover:opacity-100 transition-opacity">Trabajos</a></li>
+      </ul>
 
-      <div>
-        <h4 class="font-semibold mb-4">Contacto</h4>
-        <p class="text-gray-400 mb-2">Email: vicentealtamirano2104@gmail.com</p>
-        <p class="text-gray-400 mb-4">Ubicación: La Serena, Chile</p>
-        <div class="flex space-x-4">
-          <a href="https://github.com/vema17" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition text-xl">
-            GitHub
+      <ul class="space-y-2">
+        <li>
+          <a href="https://github.com/vema17" target="_blank" rel="noopener" class="opacity-60 hover:opacity-100 transition-opacity">
+            GitHub ↗
           </a>
-          <a href="https://www.linkedin.com/in/vicente-munoz-altamirano/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition text-xl">
-            LinkedIn
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/vicente-munoz-altamirano/" target="_blank" rel="noopener" class="opacity-60 hover:opacity-100 transition-opacity">
+            LinkedIn ↗
           </a>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
 
-    <hr class="border-gray-700 mb-6" />
-
-    <div class="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-      <p>&copy; 2026 Vicente Muñoz.</p>
-      <p>Diseñado usando Astro y Tailwind CSS</p>
+    <div class="flex flex-col sm:flex-row justify-between gap-2 mt-12 vm-mono opacity-50">
+      <p>&copy; 2026 Vicente Muñoz</p>
+      <p>Astro + Tailwind CSS</p>
     </div>
   </div>
 </footer>
